@@ -1,10 +1,8 @@
 #[ NODE(head) ] -> [ NODE ] -> [ NODE(tail) ] -> nil
 
 class LinkedList
-    #list = []
-    attr_accessor :size, :head, :tail
+    attr_accessor :head, :tail
     def initialize(head = nil)
-        @size = 0
         @head = Node.new(head)
         @tail = @head
 
@@ -13,10 +11,9 @@ class LinkedList
     def append(value)
         if @head == nil; prepend(value)
         else
-            list[0] = @head
-            list = list.next_node until list.next_node.nil?
-            @tail = list.next_node
-            @size += 1
+            temp = @head
+            temp = temp.next_node until temp.next_node.nil?
+            @tail = temp.next_node
         
         end
 
