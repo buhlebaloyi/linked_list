@@ -1,6 +1,7 @@
 #[ NODE(head) ] -> [ NODE ] -> [ NODE(tail) ] -> nil
 
 class LinkedList
+    #list = []
     attr_accessor :size, :head, :tail
     def initialize(head = nil)
         @size = 0
@@ -21,13 +22,10 @@ class LinkedList
 
     end
 
-
     def prepend(value)
         @head = Node.new(value, head);
  
      end
-
-
 
     def ins_aft(value, next_node)
         temp = Node.new(value) #@head = Node.new(value)
@@ -65,27 +63,46 @@ class LinkedList
     end
 
     def size
-        return @size
+        temp = 0
+        cur = @head
+        until cur == nil do
+            temp += 1
+            cur = cur.next_node
+
+        end
+
+        return temp
 
     end
 
     def head
-        return list[0]
+        return @head
 
     end
 
     def tail
-        return list.last
+        cur = @head
+        until cur == nil do
+            cur = cur.next_node
+
+        end
+        tail_ = cur
+        return tail_
 
     end
 
     def at(index)
-        index = @size
-        return index
+        temp = 0
+        cur = @head
+        until temp > index do
+            cur = cur.next_node
+            temp += 1
+
+        end
+
+        return cur
 
     end
-
-
 
     def contains?(value)
         cur = @head
@@ -101,8 +118,7 @@ class LinkedList
             end
 
         end
-        
-        
+          
     end
 
     def find(value)
@@ -141,9 +157,25 @@ class LinkedList
     end
 
     def insert_at(value, index)
-        
+        if head.data.eql?index
+            @head = @head.next_node
+            return
+
+        end
+
+        cur = @head
+        prev = nil
+
+        until cur == nil && cur.data.eql?index do
+            prev = cur
+            cur = cur.next_node
+
+        end
+
+        cur.next_node = cur.next_node #############3
 
     end
+
 
     def remove_at(index)
         if @head == nil; print "cannot delete" end
