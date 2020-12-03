@@ -1,7 +1,6 @@
 #[ NODE(head) ] -> [ NODE ] -> [ NODE(tail) ] -> nil
 
 class LinkedList
-    #list = []
     attr_accessor :size, :head, :tail
     def initialize(head = nil)
         @size = 0
