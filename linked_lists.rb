@@ -44,7 +44,7 @@ class LinkedList
 
     def ins_bef(value, next_node)
         if @head == nil; return nil end
-        if @head.data.eql?value
+        if @head.data.eql?(value)
             prepend(next_node)
             return
 
@@ -52,7 +52,7 @@ class LinkedList
         
         prev = nil
         cur = @head
-        until cur == nil && cur.data.eql?value do
+        until cur == nil && cur.data.eql?(value) do
             prev = cur
             cur = cur.next_node
 
@@ -157,7 +157,7 @@ class LinkedList
     end
 
     def insert_at(value, index)
-        if head.data.eql?index
+        if head.data.eql?(index)
             @head = @head.next_node
             return
 
@@ -166,20 +166,20 @@ class LinkedList
         cur = @head
         prev = nil
 
-        until cur == nil && cur.data.eql?index do
+        until cur == nil && cur.data.eql?(index) do
             prev = cur
             cur = cur.next_node
 
         end
 
-        cur.next_node = cur.next_node #############3
+        cur.next_node = cur.next_node #############
 
     end
 
 
     def remove_at(index)
         if @head == nil; print "cannot delete" end
-        if head.data.eql?index
+        if head.data.eql?(index)
             @head = @head.next_node
             return
 
@@ -188,7 +188,7 @@ class LinkedList
         cur = @head
         prev = nil
 
-        until cur == nil && cur.data.eql?index do
+        until cur == nil && cur.data.eql?(index) do
             prev = cur
             cur = cur.next_node
 
